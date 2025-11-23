@@ -1,0 +1,7 @@
+faster-whisper[distil]
+flask==3.0.3
+flask-sse
+ffmpeg-python
+torch==2.4.0+cpu
+torchaudio==2.4.0+cpu
+--extra-index-url https://download.pytorch.org/whl/cpu
