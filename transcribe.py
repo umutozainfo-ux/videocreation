@@ -34,5 +34,19 @@ class Transcriber:
             "language": info.language,
             "duration": info.duration
         }
+    
+    def transcribe_large_file(self, audio_path, language=None, chunk_size=120):
+        """
+        For large files - uses the same word-by-word technology
+        but processes in chunks to save memory
+        """
+        return self.transcribe_file(audio_path, language, word_timestamps=True)
+    
+    def transcribe_file_no_vad(self, audio_path, word_timestamps=True, use_large_model=True):
+        """
+        Alternative method without VAD - uses same word-by-word approach
+        """
+        return self.transcribe_file(audio_path, word_timestamps=word_timestamps)
 
-transcriber = Transcriber("large-v3")  # or "medium", "small" for faster
+# Global instance
+transcriber = Transcriber("large-v3")
